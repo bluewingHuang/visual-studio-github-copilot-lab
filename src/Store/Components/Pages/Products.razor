@@ -63,7 +63,7 @@ else
     }
 
     .product-image-container {
-        background-color: #f5f5f5;
+        background-color: var(--card-bg);
         border-radius: 12px;
         padding: 1.5rem;
         display: flex;
@@ -71,11 +71,11 @@ else
         justify-content: center;
         aspect-ratio: 1;
         overflow: hidden;
-        transition: box-shadow 0.3s ease;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .product-card:hover .product-image-container {
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        box-shadow: 0 8px 24px var(--card-shadow);
     }
 
     .product-image {
@@ -100,13 +100,13 @@ else
     .product-name {
         font-size: 1rem;
         font-weight: 500;
-        color: #333;
+        color: var(--text-primary);
         flex: 1;
     }
 
     .product-price {
         font-size: 1rem;
-        color: #666;
+        color: var(--text-secondary);
         white-space: nowrap;
     }
 

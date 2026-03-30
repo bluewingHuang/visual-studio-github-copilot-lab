@@ -13,12 +13,13 @@ main {
 }
 
 .top-row {
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #d6d5d5;
+    background-color: var(--nav-top-bg);
+    border-bottom: 1px solid var(--nav-top-border);
     justify-content: flex-end;
     height: 3.5rem;
     display: flex;
     align-items: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
     .top-row ::deep a, .top-row ::deep .btn-link {
