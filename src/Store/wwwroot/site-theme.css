@@ -1,0 +1,62 @@
+/* Light theme variables (default) */
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --link-color: #0071c1;
+    --nav-top-bg: #f7f7f7;
+    --nav-top-border: #d6d5d5;
+    --card-bg: #f5f5f5;
+    --card-shadow: rgba(0, 0, 0, 0.12);
+    --form-bg: #ffffff;
+    --form-border: #ced4da;
+    --form-color: #212529;
+}
+
+/* Dark theme variables */
+[data-theme="dark"] {
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #aaaaaa;
+    --link-color: #58a6ff;
+    --nav-top-bg: #1e1e1e;
+    --nav-top-border: #333333;
+    --card-bg: #2a2a2a;
+    --card-shadow: rgba(0, 0, 0, 0.5);
+    --form-bg: #2a2a2a;
+    --form-border: #555555;
+    --form-color: #e0e0e0;
+}
+
+/* Apply theme to page background and text */
+html, body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Apply theme to links */
+a, .btn-link {
+    color: var(--link-color);
+    transition: color 0.3s ease;
+}
+
+/* Apply theme to form controls */
+.form-control, .form-select, .form-check-input {
+    background-color: var(--form-bg);
+    border-color: var(--form-border);
+    color: var(--form-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: var(--form-bg);
+    color: var(--form-color);
+}
+
+[data-theme="dark"] .form-control::placeholder,
+[data-theme="dark"] .form-select::placeholder {
+    color: var(--text-secondary);
+}
