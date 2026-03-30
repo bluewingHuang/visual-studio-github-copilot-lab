@@ -1,0 +1,51 @@
+@page "/product/{Id:int}"
+@using DataEntities
+@using Store.Services
+@inject ProductService ProductService
+@inject IConfiguration Configuration
+@inject NavigationManager NavigationManager
+
+<PageTitle>@(product is null ? "Product" : product.Name)</PageTitle>
+
+@if (product == null)
+{
+    <div class="d-flex justify-content-center">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+}
+else
+{
+    <div class="product-detail">
+        <div class="image">
+            <img src="@($"{ImagePrefix}/{product.ImageUrl}")" alt="@product.Name" />
+        </div>
+        <div class="info">
+            <h1>@product.Name</h1>
+            <p class="price">@product.Price.ToString("C")</p>
+            <p class="description">@product.Description</p>
+
+            <button class="btn btn-secondary" @onclick="BackToProducts">Back to Products</button>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private Product? product;
+    private string ImagePrefix;
+
+    protected override async Task OnInitializedAsync()
+    {
+        ImagePrefix = Configuration["ImagePrefix"];
+        product = await ProductService.GetProductById(Id);
+    }
+
+    private void BackToProducts()
+    {
+        NavigationManager.NavigateTo("/products");
+    }
+}
